@@ -1,0 +1,30 @@
+{
+    "name": "s",
+    "version": "1.0.0",
+    "description": "A light JavaScript library.",
+    "author": "Aristide Benoist",
+    "license": "MIT",
+    "main": "index.js",
+    "maintainers": [
+        "ariiiman <email@aristidebenoist.com>"
+    ],
+    "bugs": {
+        "url": "https://github.com/ariiiman/s/issues"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/ariiiman/s.git"
+    },
+    "devDependencies": {
+        "uglify-js": "3.3.21"
+    },
+    "scripts": {
+        "build": "bash build/bash/build.sh",
+        "push": "bash build/bash/push.sh"
+    },
+    "homepage": "https://github.com/ariiiman/s#readme",
+    "dependencies": {
+        "commander": "^2.15.1",
+        "source-map": "^0.6.1"
+    }
+}
