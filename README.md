@@ -4,7 +4,7 @@ A light JavaScript library.
 
 ## Installation
 
-    $ yarn add s --dev
+    $ yarn add @ariiiman/s --dev
 
 ## Usage
 
@@ -12,7 +12,7 @@ Look at the **src** folder in the github repository for more information
 
 ### Import
 
-    import S from 's'
+    import S from '@ariiiman/s'
 
 ### Return the body node of the document
 
@@ -28,21 +28,20 @@ Look at the **src** folder in the github repository for more information
 
 ### Play animations with Merom
 
-    const animation = new S.Merom({el: '#id', p: {x: [0, 600, 'px']}, d: 2000, e: 'Power4InOut'})
+    const animation = new S.M({el: '#id', p: {x: [0, 600, 'px']}, d: 2000, e: 'io4'})
     animation.play()
+
     animation.play({p: {x: {newEnd: 50}}, reverse: true})
 
-### Build sequences of Merom with TL
+### Build sequences of Merom with Timeline
 
     const tl = new S.TL()
-    tl.from({el: '#id0', p: {x: [0, 600, 'px'], rotate: [0, 360]}, d: 5000, e: 'linear'})
-    tl.from({el: '#id1', p: {x: [0, 600, 'px'], rotate: [0, 360]}, d: 5000, e: 'linear', delay: 300, cb: myCallback})
+    tl.from({el: '#id0', p: {x: [0, 600, 'px'], rotate: [0, 360]}, d: 500, e: 'linear'})
+    tl.from({el: '#id1', p: {x: [0, 600, 'px'], rotate: [0, 360]}, d: 500, e: 'linear', delay: 300, cb: myCallback})
 
     tl.play()
 
     tl.pause()
-
-    tl.play({reverse: true})
 
 ## Author
 

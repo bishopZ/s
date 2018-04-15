@@ -52,7 +52,7 @@ end                 percentage → default: 100
 TRANSLATION EXAMPLE
 ───────────────────
 
-this.anim = new S.Merom({el: '#id', p: {x: [0, 600, 'px']}, d: 2000, e: 'Power4Out'})
+this.anim = new S.M({el: '#id', p: {x: [0, 600, 'px']}, d: 2000, e: 'o4'})
 
 this.anim.play()
 
@@ -61,14 +61,14 @@ this.anim.play({p: {x: {newEnd: 50}}, reverse: true})
 MORPHING JS EXAMPLE
 ───────────────────
 
-this.morph = new S.Merom({
+this.morph = new S.M({
     el: '#circle',
     svg: {
         type: 'polygon',
         end: '57.2,32.8 60.6,34.7 64.3,36.9 68.5,39.3 71.1,40.8 74.2,42.6 77.6,44.6 80.9,46.5 85,48.8 88.1,50.6 91.4,52.5 94.5,54.3 97.6,56.1 100.9,58 104.5,60.1 109,62.7 113,65 109.6,67 105.9,69.1 101.7,71.5 98.9,73.1 95.4,75.2 92,77.1 89.1,78.8 85.6,80.8 82,82.9 77.6,85.5 73.4,87.8 70.3,89.7 67.2,91.5 63.6,93.5 59.7,95.8 55.9,98 52.3,100 49.5,101.7 46.7,103.3 43.8,105 41,106.6 38,108.3 38,103 38,97.3 38,92.7 38,89.2 38,85.6 38,81.7 38,77.9 38,73.2 38,68.8 38,65 38,61.1 38,56.8 38,52.4 38,47.9 38,44.3 38,39.4 38,35.2 38,30.5 38,25.7 38,21.7 41,23.5 44.6,25.5 48.4,27.7 51.4,29.4 54,30.9'
     },
     d: 2000,
-    e: 'Power4Out'
+    e: 'o4'
 })
 
 this.morph.play()
@@ -83,7 +83,7 @@ MORPHING HTML EXAMPLE
 LINE JS EXAMPLE
 ───────────────
 
-this.line = new S.Merom({
+this.line = new S.M({
     el: '.shape',
     line: {
         elWithLength: this.el
@@ -92,7 +92,7 @@ this.line = new S.Merom({
         end: 25
     },
     d: 2000,
-    e: 'Power4Out'
+    e: 'o4'
 })
 
 this.line.play()
@@ -122,17 +122,17 @@ LINE CSS EXAMPLE
 
 */
 
-S.Merom = function (opts) {
-    S.BM(this, ['getRaf', 'loop', 'updSvg', 'updLine', 'updProp'])
+S.M = function (opts) {
+    S.BM(this, ['raf', 'loop', 'updSvg', 'updLine', 'updProp'])
 
     this.v = this.varsInit(opts)
 }
 
-S.Merom.prototype = {
+S.M.prototype = {
 
     varsInit: function (o) {
         var v = {
-            el: S.Selector.el(o.el),
+            el: S.Select.el(o.el),
             e: {
                 value: o.e || 'linear'
             },
@@ -288,7 +288,7 @@ S.Merom.prototype = {
     play: function (opts) {
         this.pause()
         this.varsUpd(opts)
-        setTimeout(this.getRaf, this.v.delay)
+        setTimeout(this.raf, this.v.delay)
     },
 
     pause: function () {
@@ -349,7 +349,7 @@ S.Merom.prototype = {
         this.v.cb = S.Has(o, 'cb') ? o.cb : this.v.cb
     },
 
-    getRaf: function () {
+    raf: function () {
         this.v.time.start = 0
 
         this.raf = requestAnimationFrame(this.loop)

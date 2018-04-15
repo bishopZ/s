@@ -25,12 +25,12 @@ mmCb (posX, posY, event) {
 */
 
 S.MM = function (opts) {
-    this.el = S.Selector.el(opts.element)[0] || document
+    this.el = S.Select.el(opts.element)[0] || document
     this.cb = opts.cb
     this.iM = S.Snif.isMobile
     this.tick = false
 
-    S.BM(this, ['getRaf', 'run'])
+    S.BM(this, ['raf', 'run'])
 }
 
 S.MM.prototype = {
@@ -45,10 +45,10 @@ S.MM.prototype = {
 
     l: function (action) {
         var type = this.iM ? 'touch' : 'mouse'
-        S.L(this.el, action, type + 'move', this.getRaf)
+        S.L(this.el, action, type + 'move', this.raf)
     },
 
-    getRaf: function (e) {
+    raf: function (e) {
         this.e = e
 
         if (!this.tick) {

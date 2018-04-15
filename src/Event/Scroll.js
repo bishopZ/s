@@ -23,7 +23,7 @@ S.Scroll = function (cb) {
     this.cb = cb
     this.tick = false
 
-    S.BM(this, ['getRaf', 'run'])
+    S.BM(this, ['raf', 'run'])
 }
 
 S.Scroll.prototype = {
@@ -39,10 +39,10 @@ S.Scroll.prototype = {
     },
 
     l: function (action) {
-        S.L(window, action, 'scroll', this.getRaf)
+        S.L(window, action, 'scroll', this.raf)
     },
 
-    getRaf: function (e) {
+    raf: function (e) {
         this.e = e
 
         if (!this.tick) {

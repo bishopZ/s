@@ -14,7 +14,7 @@ S.L(document, 'remove', 'touchmove', callback, {passive: false})
 
 S.L = function (el, action, type, cb, o) {
     var d = document
-    var el = S.Selector.el(el)
+    var el = S.Select.el(el)
     var elL = el.length
     var t
 

@@ -6,12 +6,10 @@ SCROLL TO TOP
 ──────────────────────────────────────────
 ──────────────────────────────────────────
 
-const options = {
+S.ScrollToTop({
     totalH: element.offsetHeight,
     cb: afterTop
-}
-
-S.ScrollToTop(options)
+})
 
 */
 

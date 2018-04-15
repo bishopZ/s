@@ -2,17 +2,17 @@
 
 ──────────────────────────────────────────
 ──────────────────────────────────────────
-SELECTOR
+SELECT
 ──────────────────────────────────────────
 ──────────────────────────────────────────
 
-const el[0] = S.Selector.el(selector)
-const type = S.Selector.type(selector)
-const name = S.Selector.name(selector)
+const el[0] = S.Select.el(selector)
+const type = S.Select.type(selector)
+const name = S.Select.name(selector)
 
 */
 
-S.Selector = {
+S.Select = {
     el: function (v) {
         var el = []
         if (S.Is.string(v)) {

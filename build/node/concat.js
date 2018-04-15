@@ -2,7 +2,7 @@ const fs = require('fs')
 
 const srcArr = [
     'src/Base/S.js',
-    'src/Animation/Merom.js',
+    'src/Animation/M.js',
     'src/Animation/TL.js',
     'src/Core/BM.js',
     'src/Core/Ease.js',
@@ -14,7 +14,7 @@ const srcArr = [
     'src/Core/Throttle.js',
     'src/El/G.js', // Must be before 'Dom'
     'src/El/Dom.js',
-    'src/El/Selector.js',
+    'src/El/Select.js',
     'src/El/Index.js',
     'src/Event/MM.js',
     'src/Event/RO.js',

@@ -26,7 +26,7 @@ S.WT = function (cb) {
     this.iM = S.Snif.isMobile
     this.tick = false
 
-    S.BindMaker(this, ['touchStart', 'getRaf', 'run'])
+    S.BindMaker(this, ['touchStart', 'raf', 'run'])
 }
 
 S.WT.prototype = {
@@ -43,13 +43,13 @@ S.WT.prototype = {
         var d = document
         if (this.iM) {
             S.L(d, action, 'touchstart', this.touchStart)
-            S.L(d, action, 'touchmove', this.getRaf)
+            S.L(d, action, 'touchmove', this.raf)
         } else {
-            S.L(d, action, 'mouseWheel', this.getRaf)
+            S.L(d, action, 'mouseWheel', this.raf)
         }
     },
 
-    getRaf: function (e) {
+    raf: function (e) {
         this.e = e
         this.e.preventDefault()
 

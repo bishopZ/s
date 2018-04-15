@@ -30,10 +30,10 @@ S.RO = function (opts) {
     this.iM = S.Snif.isMobile
     this.tick = false
 
-    S.BM(this, ['getThrottle', 'getRaf', 'run'])
+    S.BM(this, ['getThrottle', 'raf', 'run'])
 
     this.throttle = new S.Throttle({
-        cb: this.getRaf,
+        cb: this.raf,
         delay: opts.throttle.delay,
         onlyAtEnd: opts.throttle.onlyAtEnd
     })
@@ -62,7 +62,7 @@ S.RO.prototype = {
         this.throttle.init()
     },
 
-    getRaf: function () {
+    raf: function () {
         if (!this.tick) {
             this.raf = requestAnimationFrame(this.run)
             this.tick = true

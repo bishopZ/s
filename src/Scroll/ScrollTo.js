@@ -9,7 +9,7 @@ SCROLL TO
 S.ScrollTo({
     dest: 1000,
     d: 200,
-    e: 'Power3Out',
+    e: '3o',
     cb: afterTop
 })
 
