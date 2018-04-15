@@ -22,7 +22,7 @@ S.ScrollTo = function (opts) {
     var start = pageYOffset
     var end = opts.dest
     var r = 1000
-    var anim = new S.Merom({d: opts.d, e: opts.e, update: upd, cb: getCb})
+    var anim = new S.M({d: opts.d, e: opts.e, update: upd, cb: getCb})
 
     if (start === end) {
         getCb()

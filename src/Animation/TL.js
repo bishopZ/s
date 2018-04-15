@@ -28,7 +28,7 @@ S.TL.prototype = {
     from: function (opts) {
         this.delay += S.Has(opts, 'delay') ? opts.delay : 0
         opts.delay = this.delay
-        this.arr.push(new S.Merom(opts))
+        this.arr.push(new S.M(opts))
     },
 
     play: function (reverse) {
