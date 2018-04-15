@@ -26,7 +26,7 @@ S.WT = function (cb) {
     this.iM = S.Snif.isMobile
     this.tick = false
 
-    S.BM(this, ['touchStart', 'raf', 'run'])
+    S.BM(this, ['touchStart', 'gRaf', 'run'])
 }
 
 S.WT.prototype = {
@@ -43,18 +43,18 @@ S.WT.prototype = {
         var d = document
         if (this.iM) {
             S.L(d, action, 'touchstart', this.touchStart)
-            S.L(d, action, 'touchmove', this.raf)
+            S.L(d, action, 'touchmove', this.gRaf)
         } else {
-            S.L(d, action, 'mouseWheel', this.raf)
+            S.L(d, action, 'mouseWheel', this.gRaf)
         }
     },
 
-    raf: function (e) {
+    gRaf: function (e) {
         this.e = e
         this.e.preventDefault()
 
         if (!this.tick) {
-            this.raf = requestAnimationFrame(this.run)
+            requestAnimationFrame(this.run)
             this.tick = true
         }
     },

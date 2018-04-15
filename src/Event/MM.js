@@ -30,7 +30,7 @@ S.MM = function (opts) {
     this.iM = S.Snif.isMobile
     this.tick = false
 
-    S.BM(this, ['raf', 'run'])
+    S.BM(this, ['gRaf', 'run'])
 }
 
 S.MM.prototype = {
@@ -45,14 +45,14 @@ S.MM.prototype = {
 
     l: function (action) {
         var type = this.iM ? 'touch' : 'mouse'
-        S.L(this.el, action, type + 'move', this.raf)
+        S.L(this.el, action, type + 'move', this.gRaf)
     },
 
-    raf: function (e) {
+    gRaf: function (e) {
         this.e = e
 
         if (!this.tick) {
-            this.raf = requestAnimationFrame(this.run)
+            requestAnimationFrame(this.run)
             this.tick = true
         }
     },

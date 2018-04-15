@@ -23,7 +23,7 @@ S.Scroll = function (cb) {
     this.cb = cb
     this.tick = false
 
-    S.BM(this, ['raf', 'run'])
+    S.BM(this, ['gRaf', 'run'])
 }
 
 S.Scroll.prototype = {
@@ -39,14 +39,14 @@ S.Scroll.prototype = {
     },
 
     l: function (action) {
-        S.L(window, action, 'scroll', this.raf)
+        S.L(window, action, 'scroll', this.gRaf)
     },
 
-    raf: function (e) {
+    gRaf: function (e) {
         this.e = e
 
         if (!this.tick) {
-            this.raf = requestAnimationFrame(this.run)
+            requestAnimationFrame(this.run)
             this.tick = true
         }
     },

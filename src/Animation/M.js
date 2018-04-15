@@ -123,7 +123,7 @@ LINE CSS EXAMPLE
 */
 
 S.M = function (opts) {
-    S.BM(this, ['raf', 'loop', 'updSvg', 'updLine', 'updProp'])
+    S.BM(this, ['gRaf', 'loop', 'updSvg', 'updLine', 'updProp'])
 
     this.v = this.varsInit(opts)
 }
@@ -288,7 +288,7 @@ S.M.prototype = {
     play: function (opts) {
         this.pause()
         this.varsUpd(opts)
-        setTimeout(this.raf, this.v.delay)
+        setTimeout(this.gRaf, this.v.delay)
     },
 
     pause: function () {
@@ -349,7 +349,7 @@ S.M.prototype = {
         this.v.cb = S.Has(o, 'cb') ? o.cb : this.v.cb
     },
 
-    raf: function () {
+    gRaf: function () {
         this.v.time.start = 0
 
         this.raf = requestAnimationFrame(this.loop)
