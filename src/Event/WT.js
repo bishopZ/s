@@ -6,7 +6,7 @@ WHEEL & TOUCH
 ──────────────────────────────────────────
 ──────────────────────────────────────────
 
-S.BindMaker(this, ['wtCb'])
+S.BM(this, ['wtCb'])
 
 this.WT = new S.WT(this.wtCb)
 
@@ -26,7 +26,7 @@ S.WT = function (cb) {
     this.iM = S.Snif.isMobile
     this.tick = false
 
-    S.BindMaker(this, ['touchStart', 'raf', 'run'])
+    S.BM(this, ['touchStart', 'raf', 'run'])
 }
 
 S.WT.prototype = {
