@@ -43,7 +43,7 @@ S.WT.prototype = {
         var d = document
         if (this.iM) {
             S.L(d, action, 'touchstart', this.touchStart)
-            S.L(d, action, 'touchmove', this.gRaf)
+            S.L(d, action, 'touchmove', this.gRaf, {passive: false})
         } else {
             S.L(d, action, 'mouseWheel', this.gRaf)
         }
