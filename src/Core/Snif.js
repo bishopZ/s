@@ -73,6 +73,10 @@ S.Snif = {
         return this.isIEolderThan11 || this.isIE11
     },
 
+    get isEdge () {
+        return /Edge\/\d./i.test(this.uA)
+    },
+
     get isMac () {
         return navigator.platform.toLowerCase().indexOf('mac') > -1
     },
