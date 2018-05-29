@@ -43,9 +43,9 @@ function addSignature (version) {
         ' *',
         ' * Version   →  ' + version,
         ' * Github    →  https://github.com/ariiiman/s',
-        ' * License   →  http://opensource.org/licenses/MIT',
+        ' * License   →  https://opensource.org/licenses/MIT',
         ' * Author    →  Copyright © ' + date.getFullYear() + ' Aristide Benoist',
-        ' * Website   →  www.aristidebenoist.com',
+        ' * Website   →  https://www.aristidebenoist.com',
         ' * Date      →  ' + monthName[date.getMonth()] + ' ' + date.getDate() + ', ' + date.getFullYear(),
         ' */'
     ]

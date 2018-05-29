@@ -9,16 +9,16 @@ EASE
 PROPERTIES
 ──────────
 
+i           In
+o           Out
+io          InOut
+
 1           Sine
 2           Quad
 3           Cubic
 4           Quart
 5           Quint
 6           Expo
-
-i           In
-o           Out
-io          InOut
 
 USAGE
 ─────

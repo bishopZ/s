@@ -86,7 +86,7 @@ S.WT.prototype = {
 
     onMouseWheel: function () {
         this.type = 'scroll'
-        this.delta = (this.e.wheelDeltaY) ? this.e.wheelDeltaY : this.e.wheelDelta
+        this.delta = this.e.wheelDeltaY ? this.e.wheelDeltaY : this.e.wheelDelta
 
         this.getCb()
     },
