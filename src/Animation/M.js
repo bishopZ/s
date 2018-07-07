@@ -37,7 +37,7 @@ width
 SVG
 ───
 
-type                'polygon' or 'path'
+type                'polygon' or 'path' (path to improve)
 start               optional
 end
 
@@ -416,7 +416,8 @@ S.M.prototype = {
         // Lerp
         this.v.svg.currTemp = ''
         for (var i = 0; i < this.v.svg.arrL; i++) {
-            this.v.svg.val[i] = this.isSvgLetter(this.v.svg.arr.start[i]) ? this.v.svg.arr.start[i] : this.lerp(+this.v.svg.arr.start[i], +this.v.svg.arr.end[i])
+            // if isNaN → Letter
+            this.v.svg.val[i] = isNaN(this.v.svg.arr.start[i]) ? this.v.svg.arr.start[i] : this.lerp(this.v.svg.arr.start[i], this.v.svg.arr.end[i])
             this.v.svg.currTemp += this.v.svg.val[i] + ' '
             this.v.svg.curr = this.v.svg.currTemp.trim()
         }
@@ -445,21 +446,20 @@ S.M.prototype = {
     },
 
     svgSplit: function (coords) {
+        var arr = []
         var s = coords.split(' ')
         var sL = s.length
-        var arr = []
         for (var i = 0; i < sL; i++) {
             var s2 = s[i].split(',')
             var s2L = s2.length
             for (var j = 0; j < s2L; j++) {
-                arr.push(+s2[j])
+                var s3 = s2[j]
+                // if isNaN → Letter
+                var s3 = isNaN(s3) ? s3 : +s3
+                arr.push(s3)
             }
         }
         return arr
-    },
-
-    isSvgLetter: function (v) {
-        return (v === 'M' || v === 'L' || v === 'C' || v === 'Z')
     }
 
 }
