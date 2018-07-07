@@ -455,7 +455,7 @@ S.M.prototype = {
             for (var j = 0; j < s2L; j++) {
                 var s3 = s2[j]
                 // if isNaN → Letter
-                var s3 = isNaN(s3) ? s3 : +s3
+                s3 = isNaN(s3) ? s3 : +s3
                 arr.push(s3)
             }
         }
