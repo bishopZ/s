@@ -13,7 +13,9 @@ S.WTP.off()
 
 S.WTP = {
     p: function (e) {
-        e.preventDefault()
+        if (e.cancelable) {
+            e.preventDefault()
+        }
     },
 
     l: function (action) {

@@ -51,7 +51,9 @@ S.WT.prototype = {
 
     gRaf: function (e) {
         this.e = e
-        this.e.preventDefault()
+        if (this.e.cancelable) {
+            this.e.preventDefault()
+        }
 
         if (!this.tick) {
             requestAnimationFrame(this.run)
