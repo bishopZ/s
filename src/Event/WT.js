@@ -23,10 +23,9 @@ type → 'scroll' or 'touch'
 
 S.WT = function (cb) {
     this.cb = cb
-    this.iM = S.Snif.isMobile
     this.tick = false
 
-    S.BM(this, ['touchStart', 'gRaf', 'run'])
+    S.BM(this, ['tS', 'gRaf', 'run'])
 }
 
 S.WT.prototype = {
@@ -41,12 +40,9 @@ S.WT.prototype = {
 
     l: function (action) {
         var d = document
-        if (this.iM) {
-            S.L(d, action, 'touchstart', this.touchStart)
-            S.L(d, action, 'touchmove', this.gRaf, {passive: false})
-        } else {
-            S.L(d, action, 'mouseWheel', this.gRaf)
-        }
+        S.L(d, action, 'mouseWheel', this.gRaf)
+        S.L(d, action, 'touchstart', this.tS)
+        S.L(d, action, 'touchmove', this.gRaf, {passive: false})
     },
 
     gRaf: function (e) {
@@ -67,9 +63,9 @@ S.WT.prototype = {
         if (eType === 'wheel') {
             this.onWheel()
         } else if (eType === 'mousewheel') {
-            this.onMouseWheel()
+            this.onMWheel()
         } else if (eType === 'touchmove') {
-            this.touchMove()
+            this.tM()
         }
     },
 
@@ -86,18 +82,18 @@ S.WT.prototype = {
         this.getCb()
     },
 
-    onMouseWheel: function () {
+    onMWheel: function () {
         this.type = 'scroll'
         this.delta = this.e.wheelDeltaY ? this.e.wheelDeltaY : this.e.wheelDelta
 
         this.getCb()
     },
 
-    touchStart: function (e) {
+    tS: function (e) {
         this.start = e.targetTouches[0].pageY
     },
 
-    touchMove: function () {
+    tM: function () {
         this.type = 'touch'
         this.delta = this.e.targetTouches[0].pageY - this.start
 

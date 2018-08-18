@@ -19,8 +19,9 @@ S.WTP = {
     },
 
     l: function (action) {
-        var t = S.Snif.isMobile ? 'touchmove' : 'mouseWheel'
-        S.L(document, action, t, this.p, {passive: false})
+        var d = document
+        S.L(d, action, 'mouseWheel', this.p)
+        S.L(d, action, 'touchmove', this.p, {passive: false})
     },
 
     on: function () {
