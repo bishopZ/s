@@ -362,7 +362,7 @@ S.M.prototype = {
 
         this.v.update()
 
-        if (this.v.progress < 1) {
+        if (this.v.progress + 0.0000001 < 1) {
             this.raf = requestAnimationFrame(this.loop)
         } else if (this.needEnd) {
             this.needEnd = false

@@ -1,6 +1,6 @@
 {
     "name": "@ariiiman/s",
-    "version": "2.1.4",
+    "version": "2.1.5",
     "description": "A light JavaScript library.",
     "author": "Aristide Benoist",
     "license": "MIT",
@@ -16,7 +16,7 @@
         "url": "git+https://github.com/ariiiman/s.git"
     },
     "devDependencies": {
-        "uglify-js": "3.4.7"
+        "uglify-js": "3.4.9"
     },
     "scripts": {
         "build": "bash build/bash/build.sh",
