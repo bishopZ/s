@@ -288,12 +288,14 @@ S.M.prototype = {
     play: function (opts) {
         this.pause()
         this.varsUpd(opts)
-        setTimeout(this.gRaf, this.v.delay)
+        this.delayST = setTimeout(this.gRaf, this.v.delay)
     },
 
     pause: function () {
         cancelAnimationFrame(this.raf)
         this.needEnd = true
+        clearTimeout(this.delayST)
+        clearTimeout(this.cbDelayST)
     },
 
     varsUpd: function (opts) {
@@ -368,7 +370,7 @@ S.M.prototype = {
             this.needEnd = false
             this.v.update()
             if (this.v.cb) {
-                setTimeout(this.v.cb, this.v.cbDelay)
+                this.cbDelayST = setTimeout(this.v.cb, this.v.cbDelay)
             }
         }
     },
