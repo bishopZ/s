@@ -39,7 +39,7 @@ S.Scroll.prototype = {
     },
 
     l: function (action) {
-        S.L(window, action, 'scroll', this.gRaf)
+        S.L(window, action, 'scroll', this.gRaf, {passive: false})
     },
 
     gRaf: function (e) {
