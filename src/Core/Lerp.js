@@ -18,7 +18,7 @@ S.Lerp.extend(nX, n0, n1, start, end)
 
 S.Lerp = {
     init: function (s, e, m) {
-        return s + (e - s) * m
+        return s * (1 - m) + e * m
     },
 
     extend: function (nX, n0, n1, s, e) {
