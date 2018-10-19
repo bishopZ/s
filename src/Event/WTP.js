@@ -20,8 +20,8 @@ S.WTP = {
 
     l: function (action) {
         var d = document
-        S.L(d, action, 'mouseWheel', this.p, {passive: false})
-        S.L(d, action, 'touchmove', this.p, {passive: false})
+        S.L(d, action, 'mouseWheel', this.p)
+        S.L(d, action, 'touchmove', this.p)
     },
 
     on: function () {

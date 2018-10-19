@@ -40,9 +40,9 @@ S.WT.prototype = {
 
     l: function (action) {
         var d = document
-        S.L(d, action, 'mouseWheel', this.gRaf, {passive: false})
-        S.L(d, action, 'touchstart', this.tS, {passive: false})
-        S.L(d, action, 'touchmove', this.gRaf, {passive: false})
+        S.L(d, action, 'mouseWheel', this.gRaf)
+        S.L(d, action, 'touchstart', this.tS)
+        S.L(d, action, 'touchmove', this.gRaf)
     },
 
     gRaf: function (e) {

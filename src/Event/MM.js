@@ -50,6 +50,9 @@ S.MM.prototype = {
 
     gRaf: function (e) {
         this.e = e
+        if (this.e.cancelable) {
+            this.e.preventDefault()
+        }
 
         if (!this.tick) {
             requestAnimationFrame(this.run)
