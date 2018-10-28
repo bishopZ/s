@@ -39,6 +39,10 @@ S.TL.prototype = {
         this.run('pause')
     },
 
+    tab: function (v) {
+        this.run('tab', v)
+    },
+
     run: function (type, r) {
         var arrL = this.arr.length
         var o = !r ? undefined : r

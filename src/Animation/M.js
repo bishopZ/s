@@ -288,14 +288,13 @@ S.M.prototype = {
     play: function (opts) {
         this.pause()
         this.varsUpd(opts)
-        this.delayST = setTimeout(this.gRaf, this.v.delay)
+        this.delay.run()
     },
 
     pause: function () {
         cancelAnimationFrame(this.raf)
         this.needEnd = true
-        clearTimeout(this.delayST)
-        clearTimeout(this.cbDelayST)
+        this.delayUp('stop')
     },
 
     varsUpd: function (opts) {
@@ -349,12 +348,31 @@ S.M.prototype = {
         this.v.delay = S.Has(o, 'delay') ? o.delay : this.v.delay
         this.v.cbDelay = S.Has(o, 'cbDelay') ? o.cbDelay : this.v.cbDelay
         this.v.cb = S.Has(o, 'cb') ? o.cb : this.v.cb
+
+        this.delay = new S.Delay(this.gRaf, this.v.delay)
+        this.cbDelay = new S.Delay(this.v.cb, this.v.cbDelay)
     },
 
     gRaf: function () {
         this.v.time.start = 0
 
         this.raf = requestAnimationFrame(this.loop)
+    },
+
+    tab: function (v) {
+        if (this.v.time.start) {
+            this.v.time.start += v
+        }
+        this.delayUp('tab', v)
+    },
+
+    delayUp: function (type, v) {
+        if (this.delay) {
+            this.delay[type](v)
+        }
+        if (this.cbDelay) {
+            this.cbDelay[type](v)
+        }
     },
 
     loop: function (now) {
@@ -370,7 +388,7 @@ S.M.prototype = {
             this.needEnd = false
             this.v.update()
             if (this.v.cb) {
-                this.cbDelayST = setTimeout(this.v.cb, this.v.cbDelay)
+                this.cbDelay.run()
             }
         }
     },

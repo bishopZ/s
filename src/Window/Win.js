@@ -11,8 +11,6 @@ const path = S.Win.path
 
 */
 
-var perf = performance
-
 S.Win = {
     get w () {
         return innerWidth
