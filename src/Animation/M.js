@@ -166,7 +166,9 @@ S.M.prototype = {
         var p = o.p || false
         var s = o.svg || false
         var l = o.line || false
+
         // Prop
+        var hasR = false
         if (p) {
             v.prop = {}
             v.propPos = []
@@ -187,7 +189,10 @@ S.M.prototype = {
                     unit: p[key][2] || '%'
                 }
                 // Save position of each prop in prop.arr
-                v.propPos[key.charAt(0)] = i
+                var fChar = key.charAt(0)
+                var propChar = fChar === 'r' && hasR ? 'r2' : fChar
+                hasR = fChar === 'r'
+                v.propPos[propChar] = i
             }
         // Svg
         } else if (s) {
@@ -404,8 +409,9 @@ S.M.prototype = {
         var y = S.Has(this.v.propPos, 'y') ? this.v.prop[this.v.propPos['y']].curr + this.v.prop[this.v.propPos['y']].unit : 0
         var t3d = x + y === 0 ? 0 : 'translate3d(' + x + ',' + y + ',0)'
         var r = S.Has(this.v.propPos, 'r') ? this.v.prop[this.v.propPos['r']].name + '(' + this.v.prop[this.v.propPos['r']].curr + 'deg)' : 0
+        var r2 = S.Has(this.v.propPos, 'r2') ? this.v.prop[this.v.propPos['r2']].name + '(' + this.v.prop[this.v.propPos['r2']].curr + 'deg)' : 0
         var s = S.Has(this.v.propPos, 's') ? this.v.prop[this.v.propPos['s']].name + '(' + this.v.prop[this.v.propPos['s']].curr + ')' : 0
-        var t = t3d + r + s === 0 ? 0 : [t3d, r, s].filter(function (val) {return val !== 0}).join(' ')
+        var t = t3d + r + r2 + s === 0 ? 0 : [t3d, r, r2, s].filter(function (val) {return val !== 0}).join(' ')
 
         // Opacity
         var o = S.Has(this.v.propPos, 'o') ? this.v.prop[this.v.propPos['o']].curr : -1
